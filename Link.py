@@ -1,23 +1,29 @@
+from Controller import Controller as C
+from Function import Function as F
+from Interface import Interface as I
+
 def run():
     act = ""
+    option = C(F('notes.json'), I())
     while (act!=8):
-        match option:
+        match option.menu():
             case '1':
-                # создать заметку
+                option.create_note()
             case '2':
-                # прочитать заметку
+                option.read_note()
             case '3':
-                # вывести все id по дате изменения
+                option.print_sorted_list()
             case '4':
-                # редактировать заметку
+                option.update_note()
             case '5':
-                # удалить заметку
+                option.del_note()
             case '6':
-                # удалить все заметки
+                option.del_all_notes()
             case '7':
-                # прочитать все заметки
+                option.print_all_notes()
             case '8':
-                # выход
+                option.bye()
                 exit()
             case _:
-                # обработка неверного ввода
+                option.wrong_index()
+run()

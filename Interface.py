@@ -29,26 +29,33 @@ class Interface:
     def print_all_notes(self, notes):
         if len(notes) != 0:
             print('\nСписок всех заметок')
-            print("NOTE FROM JSON")
+            for i in notes:
+                print(f'id: {i["id"]}\n'                     
+                      f'Заголовок: {i["title"]}\n'
+                      f'Текст: {i["text"]}\n'
+                      f'Последнее изменение: {i["date"]}\n')
         else:
             print('\nСписок заметок пуст')
-
 
     def print_sorted_list(self, notes):
         if len(notes) != 0:
             print('\nВсе заметки по дате изменения:')
-            print("NOTE FROM JSON")
+            for i in notes:
+                print(f'Дата изменения: {i["date"]} - id: {i["id"]}')
         else:
             print('\nСписок заметок пуст')
             
     def print_note(self, note):
         if len(note) != 0:
-            print("NOTE FROM JSON")
+            print(f'\nid: {note["id"]}\n'   
+                f'Заголовок: {note["title"]}\n'
+                f'Текст: {note["text"]}\n'
+                f'Последнее изменение: {note["date"]}\n')
         else:
             print('\nСписок заметок пуст')
 
     def input_id(self):
-        return input("Введите id заметки: ")
+        return int(input("Введите id заметки: "))
     
     def completed_add(self):
         print('\nЗаметка добавлена')
@@ -63,7 +70,7 @@ class Interface:
         print('\nЗаметка удалена')
 
     def completed_del_notes(self):
-        print('\nВсе заметки удаленыn')
+        print('\nВсе заметки удалены')
 
     def out_of_index(self):   
         print("\nВыберете действие от 1 до 7")

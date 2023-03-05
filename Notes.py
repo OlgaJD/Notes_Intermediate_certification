@@ -1,6 +1,6 @@
 from datetime import datetime as dt
 
-class Note:
+class Notes:
 
     def __init__(self, title, text):
         self.time = dt.now().strftime("%d.%m.%Yг. %H:%M")
